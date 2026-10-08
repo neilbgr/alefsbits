@@ -6,6 +6,7 @@ void init(Plugin *p)
 {
   pluginInstance = p;
 
+#ifndef CARDINAL_MINI_TRIM_INIT
   p->addModel(modelSimplexandhold);
   p->addModel(modelBlank6hp);
   p->addModel(modelPolyrand);
@@ -18,7 +19,8 @@ void init(Plugin *p)
   p->addModel(modelMath);
   p->addModel(modelLogic);
   p->addModel(modelProbablynot);
-  p->addModel(modelPolyplay);
+  // polyplay left out: uses osdialog_file() and std::mutex/std::thread APIs Cardinal's
+  // MinGW build doesn't provide -- needs a real Cardinal-side adaptation, not a quick fix.
   p->addModel(modelLights);
   p->addModel(modelSlips);
   p->addModel(modelTurnt);
@@ -27,6 +29,7 @@ void init(Plugin *p)
   p->addModel(modelLucc);
   p->addModel(modelPolyshuffle);
   p->addModel(modelPolycounter);
+#endif
 
   settings_load();
 }

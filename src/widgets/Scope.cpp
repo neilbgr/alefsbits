@@ -1,4 +1,5 @@
 #include "Scope.hpp"
+#include <algorithm>
 
 Scope::Scope(ScopeData *data) : data(data) {}
 

@@ -95,7 +95,7 @@ struct Simplexandhold : Module
     float speed = params[SPEED_PARAM].getValue();
     if (inputs[SPEED_INPUT].isConnected())
     {
-      speed *= clamp(inputs[SPEED_INPUT].getVoltage() / 10.0, 0.0, 1.0);
+      speed *= clamp(inputs[SPEED_INPUT].getVoltage() / 10.f, 0.f, 1.f);
     }
     for (int c = 0; c < chans; c++)
     {
